@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rect Move on mouse move</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+       body{
+        overflow-x: hidden;
+       }
+
+        #rect{
+            width: 200px;
+            height: 300px;
+            background: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- task -->
+
+    <!-- aik rectangle bnao and jb mouse center pr ho rectangle center pr ho, jb mouse left jana shuro ho rectangle b left jaana shoro ho jaye, pr jaise jaise mouse left jaye rectangle ki speed left mein jaate jaate slow ho jaye same happens with right side as well. -->
+
+
+    <div id="rect"></div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js" integrity="sha512-7Au1ULjlT8PP1Ygs6mDZh9NuQD0A5prSrAUiPHMXpU6g3UMd8qesVnhug5X4RoDr35x5upNpx0A6Sisz1LSTXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+
+        
+
+    var rect = document.querySelector("#rect");
+        
+    window.addEventListener("mousemove", function(details){
+
+     let xval =  gsap.utils.mapRange(0, window.innerWidth, 200+rect.getBoundingClientRect().width/2, window.innerWidth-(200+rect.getBoundingClientRect().width/2), details.clientX);
+        gsap.to("#rect", {
+            left: xval + 'px',
+            ease: Power3,
+        });
+    });
+    </script>
+</body>
+</html>
