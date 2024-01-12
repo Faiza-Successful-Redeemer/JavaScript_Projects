@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Cursor</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #fff;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+
+        #main{
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cursor{
+            height: 60px;
+            width: 60px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            mix-blend-mode: difference;
+            transition: all linear 0.2s;
+        }
+        h1{
+            font-weight: 900;
+            font-size: 9vw;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+
+        <div class="cursor"></div>
+        <h1>Faiza Yasir</h1>
+    </div>
+
+    <script>
+        var main = document.querySelector("#main");
+        var cursor = document.querySelector(".cursor");
+
+        main.addEventListener("mousemove", function(dets){
+           cursor.style.left = dets.x + "px";
+           cursor.style.top = dets.y + "px";
+        })
+    </script>
+</body>
+</html>
